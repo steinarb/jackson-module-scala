@@ -10,6 +10,7 @@ scalaVersion := "2.12.9"
 crossScalaVersions := Seq("2.10.7", "2.11.12", "2.12.9", "2.13.0")
 
 resolvers += Resolver.sonatypeRepo("snapshots")
+resolvers += Resolver.mavenLocal
 
 val scalaMajorVersion = SettingKey[Int]("scalaMajorVersion")
 scalaMajorVersion := {
@@ -29,7 +30,7 @@ unmanagedSourceDirectories in Compile += {
   (baseDirectory in LocalRootProject).value / "src" / "main" / s"scala-2.${scalaMajorVersion.value}"
 }
 
-val jacksonVersion = "2.10.0.pr2"
+val jacksonVersion = "2.10.0-SNAPSHOT"
 
 libraryDependencies ++= Seq(
     "com.fasterxml.jackson.core" % "jackson-core" % jacksonVersion,
